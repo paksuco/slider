@@ -1,1 +1,3 @@
-<div></div>
+<div>
+    Slider Administration will be here
+</div>

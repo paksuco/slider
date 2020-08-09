@@ -12,6 +12,6 @@ class Slider extends Component
 
     public function render()
     {
-        return view("slider::slider");
+        return view("paksuco-slider::slider");
     }
 }

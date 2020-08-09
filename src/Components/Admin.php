@@ -12,6 +12,6 @@ class Admin extends Component
 
     public function render()
     {
-        return view("slider::admin");
+        return view("paksuco-slider::admin");
     }
 }

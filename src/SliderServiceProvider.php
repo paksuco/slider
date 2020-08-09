@@ -24,14 +24,14 @@ class SliderServiceProvider extends ServiceProvider
     {
         $this->handleConfigs();
         // $this->handleMigrations();
-        // $this->handleViews();
+        $this->handleViews();
         // $this->handleTranslations();
         $this->handleRoutes();
 
         Event::listen("paksuco.menu.beforeRender", function ($key, $container) {
             if ($key == "admin") {
                 if ($container->hasItem("Slider") == false) {
-                    $container->addItem("Slider", route("paksuco.slider.admin"), "fa fa-lock");
+                    $container->addItem("Slider", route("paksuco.slider.admin"), "fa fa-brush");
                 }
             }
         });
@@ -77,8 +77,8 @@ class SliderServiceProvider extends ServiceProvider
 
         $this->publishes([__DIR__.'/../views' => base_path('resources/views/paksuco/slider')]);
 
-        Livewire::component('slider::admin', \Paksuco\Slider\Components\Admin::class);
-        Livewire::component('slider::slider', \Paksuco\Slider\Components\Slider::class);
+        Livewire::component('paksuco-slider::admin', \Paksuco\Slider\Components\Admin::class);
+        Livewire::component('paksuco-slider::slider', \Paksuco\Slider\Components\Slider::class);
     }
 
     private function handleMigrations()

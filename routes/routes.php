@@ -7,11 +7,11 @@
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'layout' => config("slider.template_to_extend", "layouts.app"),
-    'prefix' => config("slider.admin_route_prefix", ""),
+    'layout' => config("paksuco-slider.template_to_extend", "layouts.app"),
+    'prefix' => config("paksuco-slider.admin_route_prefix", ""),
     'as' => 'paksuco.',
 ], function () {
-    Route::livewire('/permissions', "slider::admin")
+    Route::livewire('/slider', "paksuco-slider::admin")
         ->name("slider.admin")
-        ->middleware(config("slider.middleware", []));
+        ->middleware(config("paksuco-slider.middleware", []));
 });
