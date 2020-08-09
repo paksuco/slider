@@ -11,5 +11,7 @@ Route::group([
     'prefix' => config("slider.admin_route_prefix", ""),
     'as' => 'paksuco.',
 ], function () {
-    Route::livewire('/permissions', "slider::admin")->name("slider")->middleware(config("slider.middleware", []));
+    Route::livewire('/permissions', "slider::admin")
+        ->name("slider.admin")
+        ->middleware(config("slider.middleware", []));
 });
