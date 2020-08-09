@@ -2,9 +2,11 @@
 
 namespace Paksuco\Slider;
 
-use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
-class SliderServiceProvider extends LaravelServiceProvider
+class SliderServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -24,7 +26,15 @@ class SliderServiceProvider extends LaravelServiceProvider
         // $this->handleMigrations();
         // $this->handleViews();
         // $this->handleTranslations();
-        // $this->handleRoutes();
+        $this->handleRoutes();
+
+        Event::listen("paksuco.menu.beforeRender", function ($key, $container) {
+            if ($key == "admin") {
+                if ($container->hasItem("Slider") == false) {
+                    $container->addItem("Slider", route("paksuco.slider"), "fa fa-lock");
+                }
+            }
+        });
     }
 
     /**
