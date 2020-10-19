@@ -12,6 +12,7 @@ class Admin extends Component
 
     public function render()
     {
-        return view("paksuco-slider::admin");
+        return view("paksuco-slider::admin")
+            ->layout(config("paksuco-slider.template_to_extend", "layouts.app"));
     }
 }

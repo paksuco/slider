@@ -7,7 +7,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'layout' => config("paksuco-slider.template_to_extend", "layouts.app"),
     'prefix' => config("paksuco-slider.admin_route_prefix", ""),
     'as' => 'paksuco.',
 ], function () {
