@@ -11,7 +11,7 @@ Route::group([
     'prefix' => config("paksuco-slider.admin_route_prefix", ""),
     'as' => 'paksuco.',
 ], function () {
-    Route::livewire('/slider', "paksuco-slider::admin")
+    Route::get('/slider', \Paksuco\Slider\Components\Admin::class)
         ->name("slider.admin")
         ->middleware(config("paksuco-slider.middleware", []));
 });
